@@ -126,16 +126,16 @@ class HBNBCommand(cmd.Cmd):
 
         class_attributes = {}
         for arg in args_list[1:]:
-            # Split each argument by '=' to get key and value
+           
             split_arg = arg.split('=')
             if len(split_arg) != 2:
                 continue
 
             key, value = split_arg[0], split_arg[1]
 
-            # Handle value types: string, float, integer
+            
             if value.startswith('"') and value.endswith('"'):
-                # Remove double quotes and replace underscores with spaces
+                
                 value = value[1:-1].replace('_', ' ').replace('\\"', '"')
             elif '.' in value:
                 try:
@@ -148,10 +148,10 @@ class HBNBCommand(cmd.Cmd):
                 except ValueError:
                     continue
 
-            # Assign the key-value pair to class_attributes
+            
             class_attributes[key] = value
 
-        # Create a new instance of the class with the provided attributes
+        
         new_instance = HBNBCommand.classes[class_name](**class_attributes)
         storage.save()
         print(new_instance.id)
