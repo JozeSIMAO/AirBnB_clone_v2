@@ -1,4 +1,4 @@
-Project by Jose Simao and Believe Liphadzi
+Project by Joze Simao and Believe Liphadzi
 
 <center> <h1>HBNB - The Console</h1> </center>
 
