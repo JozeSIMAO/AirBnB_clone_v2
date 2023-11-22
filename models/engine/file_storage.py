@@ -31,7 +31,8 @@ class FileStorage:
     def all(self, cls=None):
         """returns the dictionary __objects containing all stored objects"""
         if cls is not None:
-            return {k: v for k, v in self.__objects.items() if isinstance(v, cls)}
+            return {k: v for k, v in self.__objects.
+                    items() if isinstance(v, cls)}
         return self.__objects
 
     def save(self):
@@ -43,7 +44,7 @@ class FileStorage:
                 serializable_objects[key] = obj.to_dict()
             except Exception as e:
                 print(f"Error serializing object {key}: {e}")
-        
+
         with open(self.__file_path, 'w') as file:
             json.dump(serializable_objects, file)
 
@@ -61,7 +62,7 @@ class FileStorage:
         except FileNotFoundError:
             return
 
-    def delete(self ,obj=None):
+    def delete(self, obj=None):
         if obj is None:
             return
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
