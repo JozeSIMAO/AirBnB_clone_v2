@@ -180,7 +180,8 @@ class HBNBCommand(cmd.Cmd):
                 instance_id = args[1]
                 attr_name = args[2]
                 attr_value = args[3]
-                instance = file_storage.all().get(f"{class_name}.{instance_id}")
+                instance = file_storage.all().get
+                (f"{class_name}.{instance_id}")
 
                 if instance:
                     setattr(instance, attr_name, attr_value)
