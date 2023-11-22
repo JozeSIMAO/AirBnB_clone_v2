@@ -8,7 +8,7 @@ class User(BaseModel, Base):
     """This class defines a user by various attributes"""
     __tablename__ = 'users'
 
-    email = Column(String(128), nullable=False)  # Column for email
-    password = Column(String(128), nullable=False)  # Column for password
-    first_name = Column(String(128))  # Column for first name
-    last_name = Column(String(128))  # Column for last name
+    email = Column(String(128), nullable=False)
+    password = Column(String(128), nullable=False)
+    first_name = Column(String(128))
+    last_name = Column(String(128))
