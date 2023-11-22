@@ -35,10 +35,17 @@ class FileStorage:
         return self.__objects
 
     def save(self):
-        """serializes __objects to the JSON file(path: __filepath)"""
-        sterObj = {key: obj.to_dict() for key, obj in self.__objects.items()}
+        """Serializes __objects to the JSON file (path: __file_path)"""
+        serializable_objects = {}
+        for key, obj in self.__objects.items():
+            try:
+                # Attempt to serialize the object to a dictionary
+                serializable_objects[key] = obj.to_dict()
+            except Exception as e:
+                print(f"Error serializing object {key}: {e}")
+        
         with open(self.__file_path, 'w') as file:
-            json.dump(sterObj, file)
+            json.dump(serializable_objects, file)
 
     def reload(self):
         """deserializes the JSON file to __objects
